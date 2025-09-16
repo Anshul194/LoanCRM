@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+
+body {
+  @apply bg-[#F7F7F7];
+}
+button{
+  cursor: pointer;
+}
+.clr{
+  color:#2F3287;
+}
+
+.btnClr{
+  background-color: #2F3287;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.borderCst{
+  border:2px solid #2F3287;
+  border-radius: 100%;
+}
+
+.button::before{
+  content: "\ea5c";
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.icon-ea5c::before {
+  content: "\ea5c";
+  font-family: 'YourIconFont', sans-serif; /* Replace with your icon font name */
+  display: inline-block;
+}
