@@ -7,6 +7,19 @@ import Leads from './pages/Leads.jsx'
 import Enquiry from './pages/Enquiry.jsx'
 import Campaigns from './pages/Campaigns.jsx'
 import CreateLead from './pages/CreateLead.jsx'
+import Accounts from './pages/Accounts.jsx'
+import Invoices from './pages/Invoices.jsx'
+import PayoutRequests from './pages/PayoutRequests.jsx'
+import Masters from './pages/Masters.jsx'
+import LeadStatus from './pages/LeadStatus.jsx'
+import Automation from './pages/Automation.jsx'
+import AutomationMapping from './pages/AutomationMapping.jsx'
+import Reports from './pages/Reports.jsx'
+import LenderMaster from './pages/LenderMaster.jsx'
+import EmployeeIncentiveStructure from './pages/EmployeeIncentiveStructure.jsx'
+import ConnectorsPayoutStructure from './pages/ConnectorsPayoutStructure.jsx'
+import CustomField from './pages/CustomField.jsx'
+import LeadSource from './pages/LeadSource.jsx'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -20,6 +33,19 @@ function App() {
         <Route path="/enquiry" element={<Enquiry/>} />
         <Route path="/campaigns" element={<Campaigns/>} />
         <Route path="/create-lead" element={<CreateLead />} />
+        <Route path="/accounts" element={<Accounts />} />
+        <Route path="/invoices" element={<Invoices />} />
+        <Route path="/payout-requests" element={<PayoutRequests />} />
+        <Route path="/masters" element={<Masters />} />
+        <Route path="/masters/lead-status" element={<LeadStatus />} />
+        <Route path="/automation" element={<Automation />} />
+        <Route path="/automation-mapping" element={<AutomationMapping />} />
+        <Route path="/reports" element={<Reports />} />
+        <Route path="/masters/lender-master" element={<LenderMaster />} />
+        <Route path="/masters/employee-incentive-structure" element={<EmployeeIncentiveStructure />} />
+        <Route path="/masters/connectors-payout-structure" element={<ConnectorsPayoutStructure />} />
+        <Route path="/masters/custom-field" element={<CustomField />} />
+        <Route path="/masters/lead-source" element={<LeadSource />} />
       </Routes>
     </BrowserRouter>
   )
