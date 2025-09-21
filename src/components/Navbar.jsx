@@ -7,7 +7,7 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navigationItems = [
-    { name: 'Dashboard', icon: BarChart3, active: true, href: '/dashboard' },
+    { name: 'Dashboard', icon: BarChart3, active: true, href: '/' },
     { name: 'Enquiry', icon: FileText, href: '/enquiry' },
     { name: 'Leads', icon: Users, href: '/leads' },
     { name: 'Accounts', icon: User, href: '/accounts' },
@@ -19,7 +19,7 @@ const Navbar = () => {
   ];
 
   const mobileMenuItems = [
-    { name: 'Dashboard', icon: BarChart3, href: '/dashboard' },
+    { name: 'Dashboard', icon: BarChart3, href: '/' },
     { name: 'Enquiry', icon: FileText, href: '/enquiry' },
     { name: 'Leads', icon: Users, href: '/leads' },
     { name: 'Accounts', icon: User, href: '/accounts' },
@@ -41,7 +41,9 @@ const Navbar = () => {
       <nav className="hidden sticky top-0 lg:flex bg-[#f5f5f5] border-b border-[#181778] px-6 py-2 items-center justify-between">
         {/* Left side - Logo and Navigation */}
         <div className="flex items-center space-x-8">
-            <Link><img src={logo} className='max-w-24' alt="" /></Link>
+            {/* <Link><img src={logo} className='max-w-24' alt="" /></Link> */}
+
+            <h1 className='text-lg font-bold'>LOGO</h1>
           
           <div className="flex items-center space-x-6">
             {navigationItems.map((item, index) =>
