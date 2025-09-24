@@ -151,9 +151,9 @@ const Enquiry = () => {
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 md:mb-8 gap-4">
         <h1 className="text-xl md:text-2xl font-bold text-gray-900">ENQUIRY</h1>
         
-        <div className="flex sm:flex-row items-stretch sm:items-center space-y-2 justify-between sm:space-y-0 sm:space-x-3 w-full sm:w-auto">
+        <div className="flex sm:flex-row gap-2 overflow-x-scroll items-stretch whitespace-nowrap sm:items-center space-y-2 justify-between sm:space-y-0 sm:space-x-3 w-full sm:w-auto">
           <button
-            className="bg-[#2F3287] text-white px-3 sm:px-4 py-2 rounded-full text-xs font-medium flex items-center justify-center"
+            className="bg-[#2F3287] text-white whitespace-nowrap px-3 sm:px-4 py-2 rounded-full text-xs font-medium flex items-center justify-center"
             onClick={() => navigate("/create-enquiry")}
           >
             <Plus className="w-4 h-4 mr-2" />

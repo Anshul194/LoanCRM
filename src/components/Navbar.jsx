@@ -103,7 +103,7 @@ const Navbar = () => {
           >
             <Menu size={20} />
           </button>
-           <Link><img src={logo} className='max-w-24' alt="" /></Link>
+           <Link><h1 className='text-lg font-bold px-2'>LOGO</h1></Link>
           </div>
 
           <div className="flex items-center space-x-4">
