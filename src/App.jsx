@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { Route, Routes, useLocation } from 'react-router-dom'
 import Navbar from './components/Navbar.jsx'
 import './App.css'
 import Dashboard from './pages/Dashboard.jsx'
@@ -29,13 +29,15 @@ import Roles from './pages/Roles.jsx'
 import EmployeeTarget from './pages/EmployeeTarget.jsx'
 import DocumentMaster from './pages/DocumentMaster.jsx'
 import NotFound from './pages/NotFound.jsx'
+import Login from './pages/Login.jsx'
 
 function App() {
   const [count, setCount] = useState(0)
+  const location = useLocation();
 
   return (
-    <BrowserRouter>
-      <Navbar />
+    <>
+      {location.pathname !== "/login" && <Navbar />}
       <Routes>
         <Route path="/" element={<Dashboard />} />
         <Route path="/leads" element={<Leads />} />
@@ -64,9 +66,10 @@ function App() {
         <Route path="/masters/create-role" element={<div className="p-8">Create Role Page</div>} />
         <Route path="/masters/employee-target" element={<EmployeeTarget />} />
         <Route path="/masters/document-master" element={<DocumentMaster />} />
+        <Route path="/login" element={<Login />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-    </BrowserRouter>
+    </>
   )
 }
 
