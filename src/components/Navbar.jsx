@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { Menu, Bell, Plus, User, MoreVertical, Settings, Wallet, BarChart3, Users, FileText, Zap, Activity, LogOut, HelpCircle } from 'lucide-react';
 import logo from '../assets/logo-gradient.png';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   const navigationItems = [
     { name: 'Dashboard', icon: BarChart3, active: true, href: '/' },
@@ -38,59 +39,55 @@ const Navbar = () => {
   return (
     <>
       {/* Desktop Navigation */}
-      <nav className="hidden sticky top-0 lg:flex bg-[#f5f5f5] border-b border-[#181778] px-6 py-2 items-center justify-between">
-        {/* Left side - Logo and Navigation */}
-        <div className="flex items-center space-x-8">
+      <nav className="hidden z-[1000] sticky top-0 lg:flex bg-[#f5f5f5] border-b border-[#181778] px-10 py-4 items-center justify-between">
+        {/* All content in one line */}
+        <div className="flex items-center w-full justify-between">
+          {/* Left: Logo and Navigation */}
+          <div className="flex items-center gap-10">
             {/* <Link><img src={logo} className='max-w-24' alt="" /></Link> */}
-
-            <h1 className='text-lg font-bold'>LOGO</h1>
-          
-          <div className="flex items-center space-x-6">
-            {navigationItems.map((item, index) =>
-              item.href ? (
-                <Link to={item.href} key={index}>
+            <h1 className='text-lg font-bold px-2'>LOGO</h1>
+            <div className="flex items-center gap-6">
+              {navigationItems.map((item, index) =>
+                item.href ? (
+                  <Link to={item.href} key={index}>
+                    <button
+                      className={`text-sm font-normal px-3 py-2 rounded transition ${
+                        location.pathname === item.href
+                          ? 'text-indigo-600 font-bold'
+                          : 'text-gray-600 hover:text-gray-800'
+                      }`}
+                    >
+                      {item.name}
+                    </button>
+                  </Link>
+                ) : (
                   <button
-                    className={`text-sm font-normal px-1 py-2 rounded ${
-                      item.active 
-                        ? 'text-indigo-600 ' 
-                        : 'text-gray-600 hover:text-gray-800'
-                    }`}
+                    key={index}
+                    className="text-sm font-normal px-3 py-2 rounded transition text-gray-600 hover:text-gray-800"
                   >
                     {item.name}
                   </button>
-                </Link>
-              ) : (
-                <button
-                  key={index}
-                  className={`text-sm font-normal px-1 py-2 rounded ${
-                    item.active 
-                      ? 'text-indigo-600 ' 
-                      : 'text-gray-600 hover:text-gray-800'
-                  }`}
-                >
-                  {item.name}
-                </button>
-              )
-            )}
-          </div>
-        </div>
-
-        {/* Right side - Actions and User */}
-        <div className="flex items-center space-x-4">
-          <button className="p-2 text-gray-400 hover:text-gray-600">
-            <Bell size={20} />
-          </button>
-          <button className="bg-indigo-600 text-white px-4 py-2 rounded-md text-xs font-medium hover:bg-indigo-700">
-            UPGRADE
-          </button>
-          <span className="text-sm text-gray-600">#1</span>
-          <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center">
-              <User size={16} />
+                )
+              )}
             </div>
-            <div className="text-right">
-              <div className="text-sm font-medium text-gray-800">Anshul Sharma</div>
-              <div className="text-xs text-gray-500">Admin</div>
+          </div>
+          {/* Right: Actions and User */}
+          <div className="flex items-center gap-6">
+            <button className="p-2 text-gray-400 hover:text-gray-600">
+              <Bell size={20} />
+            </button>
+            <button className="bg-indigo-600 text-white px-5 py-2 rounded-md text-xs font-medium hover:bg-indigo-700">
+              UPGRADE
+            </button>
+            <span className="text-sm text-gray-600 px-2">#1</span>
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center">
+                <User size={16} />
+              </div>
+              <div className="text-right">
+                <div className="text-sm font-medium text-gray-800">Anshul Sharma</div>
+                <div className="text-xs text-gray-500">Admin</div>
+              </div>
             </div>
           </div>
         </div>
@@ -98,19 +95,18 @@ const Navbar = () => {
 
       {/* Tablet/Mobile Navigation */}
       <nav className="lg:hidden bg-white border-b border-gray-200">
-        <div className="flex items-center justify-between px-4 py-3">
-          <div className='flex gap-3 items-center'>
+        <div className="flex items-center justify-between px-6 py-4">
+          <div className='flex gap-4 items-center'>
             <button 
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="p-2 text-gray-600"
           >
             <Menu size={20} />
           </button>
-          
            <Link><img src={logo} className='max-w-24' alt="" /></Link>
           </div>
 
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center space-x-4">
             <button className="p-2 text-gray-400">
               <Bell size={18} />
             </button>

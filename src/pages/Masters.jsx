@@ -35,8 +35,13 @@ const Masters = () => {
             className="bg-white rounded-lg px-8 py-4 flex items-center justify-between min-w-[320px] cursor-pointer hover:shadow-md transition"
             onClick={() => {
               if (item === "Lead Status") navigate("/masters/lead-status");
+              if (item === "Products") navigate("/masters/products");
+              if (item === "Document Master") navigate("/masters/document-master");
               if (item === "Lender Master") navigate("/masters/lender-master");
+              if (item === "Employees") navigate("/masters/employees");
+              if (item === "Roles") navigate("/masters/roles");
               if (item === "Employee Incentive Structure") navigate("/masters/employee-incentive-structure");
+              if (item === "Employee Target") navigate("/masters/employee-target");
               if (item === "Connectors Payout Structure") navigate("/masters/connectors-payout-structure");
               if (item === "Custom Field") navigate("/masters/custom-field");
               if (item === "Lead Source") navigate("/masters/lead-source");
