@@ -39,7 +39,7 @@ const Navbar = () => {
   return (
     <>
       {/* Desktop Navigation */}
-      <nav className="hidden z-[1000] sticky top-0 lg:flex bg-[#f5f5f5] border-b border-[#181778] px-10 py-4 items-center justify-between">
+      <nav className="hidden z-[101] sticky top-0 lg:flex bg-[#f5f5f5] border-b border-[#181778] px-10 py-4 items-center justify-between">
         {/* All content in one line */}
         <div className="flex items-center w-full justify-between">
           {/* Left: Logo and Navigation */}

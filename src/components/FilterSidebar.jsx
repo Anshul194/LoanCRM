@@ -38,12 +38,12 @@ const FilterSidebar = ({ isOpen, onClose }) => {
   };
 
   // Sidebar animation classes
-  const sidebarClasses = `fixed top-0 right-0 h-full w-80 bg-white shadow-2xl z-50 flex flex-col
+  const sidebarClasses = `fixed top-0 right-0 h-full w-80 bg-white shadow-2xl z-[1000] flex flex-col
     transition-transform transition-opacity duration-300
     ${isOpen ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0 pointer-events-none'}`;
 
   // Overlay animation classes
-  const overlayClasses = `fixed inset-0 bg-black/30 bg-opacity-50 z-40
+  const overlayClasses = `fixed inset-0 bg-black/30 bg-opacity-50 z-[1000]
     transition-opacity duration-300
     ${isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`;
 

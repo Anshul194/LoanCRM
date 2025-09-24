@@ -30,6 +30,9 @@ import EmployeeTarget from './pages/EmployeeTarget.jsx'
 import DocumentMaster from './pages/DocumentMaster.jsx'
 import NotFound from './pages/NotFound.jsx'
 import Login from './pages/Login.jsx'
+import CreateEnquiry from './pages/CreateEnquiry.jsx'
+import Dispositions from './pages/Dispositions.jsx'
+import BulkUpload from './pages/BulkUpload.jsx'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -67,6 +70,9 @@ function App() {
         <Route path="/masters/employee-target" element={<EmployeeTarget />} />
         <Route path="/masters/document-master" element={<DocumentMaster />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/create-enquiry" element={<CreateEnquiry />} />
+        <Route path="/dispositions" element={<Dispositions />} />
+        <Route path="/bulk-upload" element={<BulkUpload />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>

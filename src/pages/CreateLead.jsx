@@ -78,7 +78,7 @@ const CreateLead = () => {
         {!showForm ? (
           <>
             {/* Loan Options Grid */}
-            <div className="grid grid-cols-3 gap-2 max-w-4xl mx-auto mb-12">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 max-w-4xl mx-auto mb-12">
               {loanTypes.map((loan) => (
                 <div
                   key={loan.id}
@@ -100,7 +100,7 @@ const CreateLead = () => {
                   )}
                   
                   <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-orange-400 to-pink-400 flex items-center justify-center text-white text-xl">
+                    <div className="w-12 h-12 min-w-12 min-h-12 rounded-lg bg-gradient-to-br from-orange-400 to-pink-400 flex items-center justify-center text-white text-xl">
                       {loan.icon}
                     </div>
                     <span className="text-gray-700 font-regular text-md">{loan.name}</span>
@@ -110,7 +110,7 @@ const CreateLead = () => {
             </div>
 
             {/* Action Buttons */}
-            <div className="flex gap-3 max-w-full mx-auto">
+            <div className="flex flex-col sm:flex-row gap-3 max-w-full mx-auto">
               <button className="flex-1 py-2 px-8 rounded-xl border border-gray-400 text-gray-600 font-medium hover:bg-gray-50 transition-colors">
                 Continue Later
               </button>
@@ -126,7 +126,7 @@ const CreateLead = () => {
           /* Form Section */
           <div className="space-y-6">
             {/* Row 1 */}
-            <div className="grid grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
               <div>
                 <label className="block text-gray-600 mb-2 text-sm">
                   Product <span className="text-red-500">*</span>
@@ -195,7 +195,7 @@ const CreateLead = () => {
             </div>
 
             {/* Row 2 */}
-            <div className="grid grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
               <div>
                 <label className="block text-gray-600 mb-2 text-sm">
                   Mobile <span className="text-red-500">*</span>
@@ -248,7 +248,7 @@ const CreateLead = () => {
             </div>
 
             {/* Row 3 */}
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div>
                 <label className="block text-gray-600 mb-2 text-sm">
                   Lead Source <span className="text-red-500">*</span>
@@ -295,7 +295,7 @@ const CreateLead = () => {
             </div>
 
             {/* Action Buttons */}
-            <div className="flex gap-3 max-w-full mx-auto">
+            <div className="flex flex-col sm:flex-row gap-3 max-w-full mx-auto">
               <button className="flex-1 py-2 px-8 rounded-xl border border-gray-400 text-gray-600 font-medium hover:bg-gray-50 transition-colors">
                 Continue Later
               </button>

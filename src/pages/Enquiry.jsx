@@ -1,5 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Search, Plus, Grid3x3, Filter, ChevronDown, X } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import Dispositions from './Dispositions.jsx';
+import FilterSidebar from '../components/FilterSidebar.jsx'; // <-- import sidebar
 
 const FilterDropdown = ({ isOpen, onClose, column, position }) => {
   const dropdownRef = useRef(null);
@@ -102,6 +105,8 @@ const Enquiry = () => {
   const [filterPosition, setFilterPosition] = useState({ top: 0, left: 0 });
   const [filters, setFilters] = useState({});
   const [activeTab, setActiveTab] = useState('UNCONTACTED');
+  const [filterSidebarOpen, setFilterSidebarOpen] = useState(false); // <-- sidebar state
+  const navigate = useNavigate();
 
   const handleFilterClick = (column, event) => {
     const rect = event.currentTarget.getBoundingClientRect();
@@ -147,22 +152,34 @@ const Enquiry = () => {
         <h1 className="text-xl md:text-2xl font-bold text-gray-900">ENQUIRY</h1>
         
         <div className="flex sm:flex-row items-stretch sm:items-center space-y-2 justify-between sm:space-y-0 sm:space-x-3 w-full sm:w-auto">
-          <button className="bg-[#2F3287] text-white px-3 sm:px-4 py-2 rounded-full text-xs font-medium flex items-center justify-center">
+          <button
+            className="bg-[#2F3287] text-white px-3 sm:px-4 py-2 rounded-full text-xs font-medium flex items-center justify-center"
+            onClick={() => navigate("/create-enquiry")}
+          >
             <Plus className="w-4 h-4 mr-2" />
             Create New Enquiry
           </button>
           
-          <button className="border border-gray-300 text-gray-700 px-3 sm:px-4 py-[5px] rounded-full text-xs font-medium flex items-center justify-center">
+          <button
+            className="border border-gray-300 text-gray-700 px-3 sm:px-4 py-[5px] rounded-full text-xs font-medium flex items-center justify-center"
+            onClick={() => navigate("/dispositions")}
+          >
             <Grid3x3 className="w-4 h-4 mr-2" />
             Dispositions
           </button>
           
-          <button className="border border-gray-300 text-gray-700 px-3 sm:px-4 py-[5px] rounded-full text-xs font-medium flex items-center justify-center">
+          <button
+            className="border border-gray-300 text-gray-700 px-3 sm:px-4 py-[5px] rounded-full text-xs font-medium flex items-center justify-center"
+            onClick={() => navigate("/bulk-upload")}
+          >
             <Plus className="w-4 h-4 mr-2" />
             Import
           </button>
           
-          <button className="border cursor-pointer hover:bg-[#2F3287] hover:text-white transform-all border-gray-300 text-gray-700 px-3 sm:px-4 sm:py-1 rounded-full text-xs font-medium flex items-center justify-center">
+          <button
+            className="border cursor-pointer hover:bg-[#2F3287] hover:text-white transform-all border-gray-300 text-gray-700 px-3 sm:px-4 sm:py-1 rounded-full text-xs font-medium flex items-center justify-center"
+            onClick={() => setFilterSidebarOpen(true)}
+          >
             <Filter className="w-4 h-4 mr-2" />
             Filters
           </button>
@@ -399,6 +416,9 @@ const Enquiry = () => {
         column={activeFilter}
         position={filterPosition}
       />
+
+      {/* Filter Sidebar */}
+      <FilterSidebar isOpen={filterSidebarOpen} onClose={() => setFilterSidebarOpen(false)} />
     </div>
   );
 };
