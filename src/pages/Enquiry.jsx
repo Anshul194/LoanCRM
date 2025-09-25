@@ -134,7 +134,7 @@ const Enquiry = () => {
     {
       id: 1,
       name: "Anshul Ea eaque quod r...",
-      mobileNo: "7999967578",
+      mobileNo: "5555555555",
       allocateTo: "Anshul Sharma",
       nextFollowupDate: "",
       disposition: "UNCONTACTED",
