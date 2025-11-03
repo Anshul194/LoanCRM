@@ -1,14 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Filter, Search, Eye } from "lucide-react";
+import { Filter, Search, Eye, Edit2, Trash2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-
-const roles = [
-  {
-    sr: 1,
-    name: "Admin",
-    createdBy: "Anshul Sharma",
-  }
-];
+import { useDispatch, useSelector } from "react-redux";
+import { fetchRoles, deleteRole } from "../store/slices/roleSlice";
 
 const FilterDropdown = ({ isOpen, onClose, column, position }) => {
   const dropdownRef = useRef(null);
@@ -54,7 +48,7 @@ const FilterDropdown = ({ isOpen, onClose, column, position }) => {
       style={{
         top: position.top,
         left: position.left,
-        position: "absolute"
+        position: "absolute",
       }}
     >
       <div className="p-3">
@@ -109,6 +103,12 @@ const Roles = () => {
   const [activeFilter, setActiveFilter] = useState(null);
   const [filterPosition, setFilterPosition] = useState({ top: 0, left: 0 });
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { items: roles = [] } = useSelector((s) => s.role || { items: [] });
+
+  useEffect(() => {
+    dispatch(fetchRoles({ page: 1, limit: 20 }));
+  }, [dispatch]);
 
   const handleFilterClick = (column, event) => {
     const rect = event.currentTarget.getBoundingClientRect();
@@ -131,7 +131,9 @@ const Roles = () => {
               <circle cx="9" cy="10" r="3" fill="#2F3287" />
             </svg>
           </span>
-          <span className="text-md font-bold text-[#2F3287] tracking-wide">ROLES</span>
+          <span className="text-md font-bold text-[#2F3287] tracking-wide">
+            ROLES
+          </span>
         </div>
         <button
           className="bg-[#2F3287] text-white px-6 py-2 rounded-full text-xs font-medium"
@@ -195,7 +197,7 @@ const Roles = () => {
             </tr>
           </thead>
           <tbody>
-            {roles.map(role => (
+            {roles.map((role) => (
               <tr key={role.sr} className="hover:bg-gray-50">
                 <td className="px-6 py-2 text-left">{role.sr}</td>
                 <td className="px-6 py-2 text-left">{role.name}</td>
